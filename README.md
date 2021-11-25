@@ -1,2 +1,11 @@
-# bibtex_intro
-Supporting files for a brief to `bibtex` style customization
+- motivation: lack of DOI, arXiv
+- why diving deep: arXiv/conference templates
+- structure of bibtex: `.tex`, `.bib`, `.bst`
+- structure of `.bst`: `ENTRY`, `FUNCTION{article}`
+- `FUNCTION{eprint}`: reverse Polish, `empty$`, `if$`, `*`
+  - `1 2 3 +`: `t1b -> t21b -> t321b -> t51b`
+- fancier stuff: `hyperref`, multiple branch
+- reference:
+  - DOI + ARXIV'S EPRINT + URL; BIBTEX/BST HOWTO: https://www.math.tamu.edu/~comech/tools/bibtex-doi-eprint/
+  - Tame the BeaST---The B to X of BibTEX: https://mirror.las.iastate.edu/tex-archive/info/bibtex/tamethebeast/ttb_en.pdf
+  - bib-style format for bibtext bst file- explained by an example: https://stackoverflow.com/questions/3546396/bib-style-format-for-bibtext-bst-file-explained-by-an-example
