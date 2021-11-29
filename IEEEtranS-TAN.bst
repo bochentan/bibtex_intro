@@ -1306,7 +1306,7 @@ FUNCTION {format.eprint}
   {archiveprefix empty$
     { "{" eprint * "}" *}
     {primaryclass empty$
-      {"\href{https://arxiv.org/abs/" eprint * "}{" * archiveprefix * ":" * eprint * "}" *}
+      {"\href{https://arxiv.org/abs/" eprint * "}{" * archiveprefix * ": " * eprint * "}" *}
       {"\href{https://arxiv.org/abs/" eprint * "}{" * archiveprefix * ": " * primaryclass * "/" * eprint * "}" *}
       if$
     }
@@ -1319,7 +1319,7 @@ if$
 FUNCTION {format.doi}
 {doi empty$
     { "" }
-    { "\href{https://doi.org/" doi * "}{ DOI: " * doi * "}" * }
+    { "\href{https://doi.org/" doi * "}{DOI: \detokenize{" * doi * "}}" * }
 if$
 }
 
@@ -2088,8 +2088,6 @@ FUNCTION {electronic}
   format.organization "organization" bibinfo.check output
   format.address "address" bibinfo.check output
   format.note output
-  format.eprint output
-  format.doi output
   format.url output
   fin.entry
   empty.entry.warn
