@@ -1,15 +1,28 @@
 # Customizing `bibtex` style
 Daniel Bochen Tan
 
-## Motivation
-URLs may change, but DOIs are constant links to papers, which is handy.
-DOI is not showing up with the current bibtex style.
-We want to modify the style so that DOI is appended to each bibliography item if there is a DOI in the .bib entry.
+## Background
+DOIs are good since they're constant while URLs are not.
+DOI may not be supported in bibtex styles.
+We want to modify the styles to append DOI to each bibliography item.
 
 ## Reverse Polish Notation
-1 2 3 +
+Input: 1 2 3 + x
+
+Stack status: t1b t21b t321b t51b t5b
 
 ## Internal Operators
-- "", doi
-- empty$:
-- {} {} if$
+- All fields are read as strings, e.g., `doi`.
+- `STRING`: push to stack, e.g., `""`, `doi`
+- `empty$`: check if the top is empty, push 1 if so, push 0 if not
+- `{ACTION_1} {ACTION_0} if$`: check if the top is strictly larger than 0, do `ACTION_1` if so, do `ACTION_0` if not.
+
+## Design `FUNCTION format.doi`
+```
+FUNCTION {format.doi}
+{doi empty$
+    { "" }
+    { doi }
+if$
+}
+```
