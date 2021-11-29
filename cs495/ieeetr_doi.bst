@@ -582,7 +582,7 @@ FUNCTION {format.incoll.inproc.crossref}
 }
 
 FUNCTION {format.doi}
-{ "" 
+{ ""
 }
 
 FUNCTION {article}
